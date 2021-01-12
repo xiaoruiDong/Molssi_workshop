@@ -4,11 +4,10 @@ TEST
 
 Handles the primary functions
 """
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 atom_colors = {
     "H": "white",
@@ -168,6 +167,8 @@ def bond_histogram(bond_list, save_location=None, dpi=300, graph_min=0, graph_ma
 
 def build_bond_list(coordinates, max_bond=1.5, min_bond=0):
 
+    if min_bond < 0:
+    	raise
     # Find the bonds in a molecule (set of coordinates) based on distance criteria.
     bonds = {}
     num_atoms = len(coordinates)
