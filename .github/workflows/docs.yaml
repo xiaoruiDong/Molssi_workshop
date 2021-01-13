@@ -12,7 +12,7 @@ jobs:
   build:
     name: Build Documentation
     runs-on: ubuntu-latest
-  
+
     steps:
     - uses: actions/checkout@v1
 
@@ -22,7 +22,7 @@ jobs:
         uname -a
         df -h
         ulimit -a
-    
+
     # More info on options: https://github.com/conda-incubator/setup-miniconda
     - uses: conda-incubator/setup-miniconda@v2
       with:
@@ -35,7 +35,7 @@ jobs:
         auto-update-conda: false
         auto-activate-base: false
         show-channel-urls: true
-    
+
     - name: Install package
 
       # conda setup requires this special shell
@@ -49,9 +49,8 @@ jobs:
       # conda setup requires this special shell
       shell: bash -l {0}
       run: |
-      	cd docs
-	make clean
-	make html
-	cd ../
-      shell: bash -l {0}
+        cd docs
+        make clean
+        make html
+        cd ../
 
