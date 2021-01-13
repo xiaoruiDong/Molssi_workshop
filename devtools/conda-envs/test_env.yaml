@@ -15,7 +15,7 @@ dependencies:
   - codecov
   
   - matplotlib
-  - numbpy
+  - numpy
 
     # Pip-only installs
   #- pip:
